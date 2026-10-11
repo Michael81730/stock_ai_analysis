@@ -1,6 +1,6 @@
 package com.mc.stock_ai_analysis.entity;
 
-public class AuthRequest {
+public class LoginRequestBody {
 
     private String username;
     private String password;

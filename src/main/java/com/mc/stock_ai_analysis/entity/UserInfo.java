@@ -1,19 +1,25 @@
 package com.mc.stock_ai_analysis.entity;
 
-public class UserInfo {
+import java.time.Instant;
 
-    private int id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "users")
+public class UserInfo {
+    
+    @Id 
+    private String id;
     private String name;
     private String email;
     private String password;
     private String roles;
+    private Instant createdAt;
+    private Instant vipExpiredAt;
+    private int vipLevel;
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -46,5 +52,17 @@ public class UserInfo {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setVipLevel(int vipLevel) {
+        this.vipLevel = vipLevel;
+    }
+
+    public void setVipExpiredAt(Instant vipExpiredAt) {
+        this.vipExpiredAt = vipExpiredAt;
     }
 }
